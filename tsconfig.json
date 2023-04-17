@@ -1,17 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "moduleResolution": "Node",
-    "jsx": "react",
-    "experimentalDecorators": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "lib",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  },
+  "extends": "@atom-web/tsconfig/src/tsconfig.json",
   "exclude": ["node_modules"],
   "ts-node": {
     // these options are overrides used only by ts-node

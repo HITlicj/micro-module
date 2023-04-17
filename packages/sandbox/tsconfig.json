@@ -1,11 +1,9 @@
 {
+  "extends": "@atom-web/tsconfig/src/tsconfig.json",
   "compilerOptions": {
     "target": "es5",
-    "jsx": "react",
     "experimentalDecorators": true,
     "declaration": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "outDir": "es"
   },
   "include": ["src/*"],
