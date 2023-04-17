@@ -5,7 +5,9 @@
   "main": "es/index.js",
   "type": "es",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf lib && tsc",
+    "watch": "tsc -w"
   },
   "keywords": [],
   "author": "",
