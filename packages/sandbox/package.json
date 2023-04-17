@@ -1,12 +1,20 @@
 {
-  "name": "sandbox",
+  "name": "@atom/sandbox",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "es/index.js",
+  "type": "es",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf lib && tsc",
+    "watch": "tsc -w"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "sandbox",
+    "micro-component"
+  ],
+  "author": "HITlicj",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
 }

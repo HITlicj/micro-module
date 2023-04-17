@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx -y only-allow pnpm",
     "prepare": "husky install",
     "stylelint": "stylelint '{packages,site}/**/*.less'",
     "format": "prettier --config .prettierrc.js --write \"{packages}/**/*.{js,jsx,ts,tsx}\""
@@ -46,6 +47,7 @@
     "lerna": "^5.1.4",
     "lint-staged": "^9.5.0",
     "prettier": "^2.7.1",
-    "stylelint": "^14.10.0"
+    "stylelint": "^14.10.0",
+    "typescript": "^5.0.4"
   }
 }

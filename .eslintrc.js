@@ -4,5 +4,6 @@ module.exports = {
     'react/require-default-props': 0,
     'no-console': "warn",
     'prefer-rest-params': 0,
+    'no-new-func': 0,
   },
 };

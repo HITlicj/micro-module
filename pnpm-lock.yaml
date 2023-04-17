@@ -28,6 +28,15 @@ importers:
       stylelint:
         specifier: ^14.10.0
         version: 14.10.0
+      typescript:
+        specifier: ^5.0.4
+        version: 5.0.4
+
+  packages/sandbox:
+    devDependencies:
+      typescript:
+        specifier: ^5.0.4
+        version: 5.0.4
 
 packages:
 
