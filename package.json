@@ -1,0 +1,23 @@
+{
+  "name": "micro-component",
+  "version": "1.0.0",
+  "description": "A framework for component reuse across technology stacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HITlicj/micro-component.git"
+  },
+  "author": "HITlicj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HITlicj/micro-component/issues"
+  },
+  "homepage": "https://github.com/HITlicj/micro-component#readme",
+  "engines": {
+    "node": ">=10",
+    "pnpm": ">=3"
+  }
+}
