@@ -4,7 +4,10 @@
   "description": "A framework for component reuse across technology stacks",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "stylelint": "stylelint '{packages,site}/**/*.less'",
+    "format": "prettier --config .prettierrc.js --write \"{packages}/**/*.{js,jsx,ts,tsx}\""
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,30 @@
   "engines": {
     "node": ">=10",
     "pnpm": ">=3"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "lint-staged": {
+    "*.{html,md,json}": [
+      "prettier --ignore-unknown --write"
+    ],
+    "*.(t|j)s?(x)": [
+      "prettier --ignore-unknown --write",
+      "eslint --fix"
+    ],
+    "*.less": [
+      "stylelint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@atom-web/fabric": "1.0.6-beta.0",
+    "@types/node": "^18.7.3",
+    "eslint": "^8.22.0",
+    "husky": "^8.0.1",
+    "lerna": "^5.1.4",
+    "lint-staged": "^9.5.0",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.10.0"
   }
 }

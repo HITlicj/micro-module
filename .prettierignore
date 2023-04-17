@@ -1,0 +1,31 @@
+# 生成文件
+*.lock
+yarn-error.log
+.eslintcache
+.DS_Store
+**/__snapshots__/**
+**/.node/**
+
+# 配置文件
+**/package.json
+.gitignore
+.eslintignore
+.prettierignore
+.editorconfig
+.dockerignore
+docker
+Dockerfile*
+LICENSE
+.history
+
+# 图片相关
+*.png
+*.svg
+
+# 打包产物
+dist
+lib
+es
+dist
+build
+public
