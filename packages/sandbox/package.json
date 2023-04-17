@@ -12,6 +12,9 @@
     "sandbox",
     "micro-component"
   ],
+  "files": [
+    "es"
+  ],
   "author": "HITlicj",
   "license": "ISC",
   "devDependencies": {

@@ -10,6 +10,7 @@
     "stylelint": "stylelint '{packages,site}/**/*.less'",
     "format": "prettier --config .prettierrc.js --write \"{packages}/**/*.{js,jsx,ts,tsx}\""
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HITlicj/micro-component.git"
