@@ -1,5 +1,5 @@
 {
-  "name": "@atom/sandbox",
+  "name": "@atom-web/sandbox",
   "version": "1.0.0",
   "description": "",
   "main": "es/index.js",
