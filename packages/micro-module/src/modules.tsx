@@ -56,10 +56,7 @@ export const clearModules = () => {
  */
 export const registerModule = (module: StarkModule) => {
   if (!module.url && !module.render) {
-    console.error(
-      '[MicroModule module] url and render cannot both be empty. name: %s',
-      module.name
-    );
+    console.error('[MicroModule module] url and render cannot both be empty. name: %s', module.name);
     return;
   }
   const hasRegistered = globalModules.filter((m) => m.name === module.name).length;
@@ -140,7 +137,7 @@ export const parseUrlAssets = (assets: string | string[]) => {
 export function appendCSS(
   name: string,
   url: string,
-  root: HTMLElement | ShadowRoot = document.getElementsByTagName('head')[0]
+  root: HTMLElement | ShadowRoot = document.getElementsByTagName('head')[0],
 ): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     if (!root) reject(new Error(`no root element for css assert: ${url}`));
@@ -156,7 +153,7 @@ export function appendCSS(
         console.error(`css asset loaded error: ${url}`);
         return resolve();
       },
-      false
+      false,
     );
     element.addEventListener('load', () => resolve(), false);
 
@@ -169,9 +166,7 @@ export function appendCSS(
  */
 
 export function removeCSS(name: string, node?: HTMLElement | Document, removeList?: string[]) {
-  const linkList: NodeListOf<HTMLElement> = (node || document).querySelectorAll(
-    `link[module=${name}]`
-  );
+  const linkList: NodeListOf<HTMLElement> = (node || document).querySelectorAll(`link[module=${name}]`);
   linkList.forEach((link) => {
     // check link href if it is in remove list
     // compatible with removeList is undefined
@@ -254,9 +249,7 @@ export const loadModule = async (targetModule: StarkModule, sandbox?: ISandbox) 
   }
 
   if (typeof moduleInfo.component !== 'undefined') {
-    console.warn(
-      '[MicroModule] The export function name called component is conflict, please change it or it will be ignored.'
-    );
+    console.warn('[MicroModule] The export function name called component is conflict, please change it or it will be ignored.');
   }
 
   return {
@@ -270,12 +263,7 @@ export const loadModule = async (targetModule: StarkModule, sandbox?: ISandbox) 
 /**
  * mount module function
  */
-export const mountModule = async (
-  targetModule: StarkModule,
-  targetNode: HTMLElement,
-  props: any = {},
-  sandbox?: ISandbox
-) => {
+export const mountModule = async (targetModule: StarkModule, targetNode: HTMLElement, props: any = {}, sandbox?: ISandbox) => {
   const { mount, component } = await loadModule(targetModule, sandbox);
   return mount(component, targetNode, props);
 };

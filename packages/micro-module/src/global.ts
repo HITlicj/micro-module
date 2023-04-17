@@ -12,10 +12,7 @@ function shouldSkipProperty(p, globalWindow) {
   return (
     !globalWindow.hasOwnProperty(p) ||
     (!isNaN(p) && p < (globalWindow as any).length) ||
-    (isIE11 &&
-      globalWindow[p] &&
-      typeof window !== 'undefined' &&
-      globalWindow[p].parent === window)
+    (isIE11 && globalWindow[p] && typeof window !== 'undefined' && globalWindow[p].parent === window)
   );
 }
 

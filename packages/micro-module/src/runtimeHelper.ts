@@ -44,11 +44,7 @@ const runtimeCache: Json<RuntimeCache> = {};
 /**
  * excute one or multi runtime in serial.
  */
-export function execute(
-  codes: string | string[],
-  deps: object,
-  sandbox = new Sandbox({ multiMode: true }) as Sandbox
-) {
+export function execute(codes: string | string[], deps: object, sandbox = new Sandbox({ multiMode: true }) as Sandbox) {
   sandbox.createProxySandbox(deps);
 
   any2AnyArray(codes).forEach((code) => sandbox.execScriptInSandbox(code));
@@ -91,9 +87,9 @@ export async function cacheDeps(runtime: CombineRuntime, deps: object, fetch = w
 
   // execute in sandbox
   try {
-    runtimeCache[mark].deps = await Promise.all(
-      jsList.map((u) => fetch(u).then((res) => res.text()))
-    ).then((codes) => execute(codes, deps));
+    runtimeCache[mark].deps = await Promise.all(jsList.map((u) => fetch(u).then((res) => res.text()))).then((codes) =>
+      execute(codes, deps),
+    );
 
     updateRuntimeState(mark, 'LOADED');
     window.dispatchEvent(new CustomEvent(mark, { detail: { state: 'LOADED' } }));
