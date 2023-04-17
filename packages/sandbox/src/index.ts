@@ -99,7 +99,7 @@ export default class Sandbox {
 
   private sandbox: Window | null;
 
-  private multiMode: boolean | undefined = false;
+  private multiMode: boolean | undefined = true;
 
   private eventListeners: Record<string, any> = {};
 
@@ -115,7 +115,7 @@ export default class Sandbox {
 
   constructor(props: SandboxProps = {}) {
     const { multiMode = true, name, key, container, scopedCSS } = props;
-    if (!window.Proxy) {
+    if (!Proxy) {
       console.warn('proxy sandbox is not support by current browser');
       this.sandboxDisabled = true;
     }
@@ -136,8 +136,8 @@ export default class Sandbox {
     const proxyWindow = Object.create(null);
     const originalWindow = window;
     // 快速读取，提升性能
-    const originalObject = window.Object;
-    const originalArray = window.Array;
+    const originalObject = Object;
+    const originalArray = Array;
     const quickList = [...CONSTRUCTOR_LIST, ...NON_CONSTRUCTOR_LIST];
     const originalAttr = quickList.reduce<Record<string, any>>((p, c) => {
       p[c] = (window as any)[c];

@@ -5,5 +5,7 @@ module.exports = {
     'no-console': 'warn',
     'prefer-rest-params': 0,
     'no-new-func': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/static-property-placement': 0,
   },
 };
