@@ -6,10 +6,6 @@ export interface SandboxProps {
   key?: string;
   container?: HTMLElement;
   scopedCSS?: boolean;
-  /**
-   * 只开启js沙箱
-   */
-  onlyJsSandbox?: boolean;
 }
 
 export type SandboxConstructor = new () => Sandbox;
