@@ -1,7 +1,7 @@
 {
   "name": "@atom-web/sandbox",
-  "version": "1.0.3",
-  "description": "",
+  "version": "1.0.4",
+  "description": "A sandbox from javascript and css",
   "main": "es/index.js",
   "type": "es",
   "scripts": {
