@@ -6,6 +6,10 @@ export interface SandboxProps {
   key?: string;
   container?: HTMLElement;
   scopedCSS?: boolean;
+  /**
+   * 只开启js沙箱
+   */
+  onlyJsSandbox?: boolean;
 }
 
 export type SandboxConstructor = new () => Sandbox;
@@ -29,7 +33,14 @@ const CONSTRUCTOR_LIST = [
   'HTMLElement',
   'HTMLIFrameElement',
 ];
-const NON_CONSTRUCTOR_LIST = ['isNaN', 'parseInt', 'parseFloat', 'isFinite', 'encodeURIComponent', 'decodeURIComponent'];
+const NON_CONSTRUCTOR_LIST = [
+  'isNaN',
+  'parseInt',
+  'parseFloat',
+  'isFinite',
+  'encodeURIComponent',
+  'decodeURIComponent',
+];
 
 // check window constructor function， like Object Array
 function isConstructor(fn: any) {
@@ -41,7 +52,10 @@ function isConstructor(fn: any) {
     return false;
   }
   // generator function and has own prototype properties
-  const hasConstructor = fn.prototype && fn.prototype.constructor === fn && Object.getOwnPropertyNames(fn.prototype).length > 1;
+  const hasConstructor =
+    fn.prototype &&
+    fn.prototype.constructor === fn &&
+    Object.getOwnPropertyNames(fn.prototype).length > 1;
   // unnecessary to call toString if it has constructor function
   const functionStr = !hasConstructor && fn.toString();
   const upperCaseRegex = /^function\s+[A-Z]/;
@@ -273,7 +287,9 @@ export default class Sandbox {
         this.createProxySandbox();
       }
       try {
-        let code = new Function('sandbox', `with (sandbox) {self=this;${script}\n}`).bind(this.sandbox);
+        let code = new Function('sandbox', `with (sandbox) {self=this;${script}\n}`).bind(
+          this.sandbox
+        );
         // run code with sandbox
         code(this.sandbox);
         code = null;
