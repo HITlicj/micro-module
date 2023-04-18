@@ -1,6 +1,6 @@
 {
   "name": "@atom-web/micro-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "es/index.js",
   "type": "es",
