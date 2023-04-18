@@ -33,8 +33,7 @@
       "prettier --ignore-unknown --write"
     ],
     "*.(t|j)s?(x)": [
-      "prettier --ignore-unknown --write",
-      "eslint --fix"
+      "prettier --ignore-unknown --write"
     ],
     "*.less": [
       "stylelint --fix"

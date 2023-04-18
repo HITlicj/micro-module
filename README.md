@@ -58,7 +58,65 @@ const App = () => {
 
 - 预加载
 
+  通常主应用会依赖多个来自同一系统的多个组件；提供一种方案，这些组件间可以依赖复用，并且不会污染主应用；
+
+  ```javascript
+  import { preFetchRuntime } from '@atom-web/micro-module';
+
+  preFetchRuntime([
+    {
+      id: 'react@16',
+      url: ['https://g.alicdn.com/code/lib/react/16.14.0/umd/react.production.min.js'],
+    },
+    {
+      id: 'react-dom@16',
+      url: ['https://g.alicdn.com/code/lib/react-dom/16.14.0/umd/react-dom.production.min.js'],
+    },
+  ]);
+  ```
+
 - cache(待完善)
+
+- 依赖外置
+
+  通常主应用和微应用会共有一些基础依赖，比如 React、ReactDOM、组件库等。可以适当考虑微应用外置掉这些基础依赖，由主应用统一加载。比如，通过 webpack Externals 外置微应用的基础依赖：
+
+  ```javascript
+  // webpack.config.js
+  module.exports = {
+    // ...
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      antd: 'antd',
+    },
+  };
+  ```
+
+  并在主应用的 index.html 中加载基础依赖的 cdn 版本。
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width" />
+      <title>icestark Framework App</title>
+    </head>
+
+    <body>
+      <div id="root"></div>
+      <!-- 在主应用中加载基础依赖 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.0/cjs/react.production.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.0/cjs/react-dom.production.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/4.17.0-alpha.8/antd.min.js"></script>
+
+      <!-- 加载主应用的脚本资源 -->
+      <script src="//ice.alicdn.com/icestark/layout-app/build/js/index.js"></script>
+    </body>
+  </html>
+  ```
 
 - 组件的加载过程中，空白的画面的用户体验较差；可以给组件一个 loading 的"过渡"动画
 
