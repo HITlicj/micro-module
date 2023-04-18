@@ -148,3 +148,8 @@ const App = () => {
 ## api
 
 ## 最佳实践
+
+- 将组件打包成umd，存放到cdn、其他能访问到的静态服务器
+- 利用中间服务器做版本控制、灰度发布、实时更新策略;
+
+[![i6i5GQ.png](https://i.328888.xyz/2023/04/18/i6i5GQ.png)](https://imgloc.com/i/i6i5GQ)
