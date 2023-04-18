@@ -1,12 +1,4 @@
-import {
-  StarkModule,
-  registerModule,
-  registerModules,
-  getModules,
-  mountModule,
-  unmoutModule,
-  clearModules,
-} from './modules';
+import { StarkModule, registerModule, registerModules, getModules, mountModule, unmoutModule, clearModules } from './modules';
 import MicroModule, { renderModules } from './MicroModule';
 import { parseRuntime as preFetchRuntime } from './runtimeHelper';
 

@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-  unmoutModule,
-  loadModule,
-  getModules,
-  registerModules,
-  ISandbox,
-  StarkModule,
-} from './modules';
+import { unmoutModule, loadModule, getModules, registerModules, ISandbox, StarkModule } from './modules';
 import { shallowCompare } from './assist';
 
 /**
@@ -87,15 +80,7 @@ export default class MicroModule extends React.Component<any, State> {
 
   async mountModule() {
     /** eslint-disable-next-line @typescript-eslint/no-unused-vars */
-    const {
-      sandbox,
-      moduleInfo,
-      wrapperClassName,
-      wrapperStyle,
-      loadingComponent,
-      handleError,
-      ...rest
-    } = this.props;
+    const { sandbox, moduleInfo, wrapperClassName, wrapperStyle, loadingComponent, handleError, ...rest } = this.props;
 
     if (!this.moduleInfo) {
       console.error(`Can't find ${this.props.moduleName} module in modules config`);
@@ -155,12 +140,7 @@ export default class MicroModule extends React.Component<any, State> {
 /**
  * Render Modules, compatible with Render and <Render>
  */
-export function renderModules(
-  modules: StarkModule[],
-  render: any,
-  componentProps?: any,
-  sandbox?: ISandbox
-): React.ReactElement {
+export function renderModules(modules: StarkModule[], render: any, componentProps?: any, sandbox?: ISandbox): React.ReactElement {
   // save match app modules in global
   registerModules(modules);
 
