@@ -131,7 +131,7 @@ export default class MicroModule extends React.Component<any, State> {
           this.mountNode = ref;
         }}
       >
-        {this.moduleInfo && this.validateRender() && render()}
+        {this.moduleInfo && this.validateRender() && render(this.moduleInfo)}
       </div>
     );
   }
