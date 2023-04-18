@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esNext",
+    "target": "es5",
     "jsx": "react",
     "experimentalDecorators": true,
     "declaration": true,
