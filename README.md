@@ -50,11 +50,10 @@ const App = () => {
   通过 with + new Function 的形式，为微应用脚本创建沙箱运行环境，并通过 Proxy 代理阻断沙箱内对 window 全局变量的访问和修改。
   @atom-web/micro-module 内置了基于 @atom-web/sandbox 的沙箱隔离，通过 sandbox 属性开启：
 
-- dom、css沙箱
+- dom、css 沙箱
 
-  基于CSS Scope的解决方案
+  基于 CSS Scope 的解决方案
   劫持原型的 appendChild，提供 proxy 版本的 document，在执行 document.createElement 方法时会为创建的节点打上来源的标签，表明是哪个应用创建了这个节点， 在通过 appendChild 等原型将节点添加文档流时，对节点进行收集，在应用销毁后将收集的节点也进行销毁，由于 JavaScript 语法的动态性和灵活性，
-  
 
 ### 组件间的通信
 
