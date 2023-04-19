@@ -1,6 +1,6 @@
 {
   "name": "@atom-web/micro-module",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A framework for component reuse across technology stacks",
   "main": "es/index.js",
   "type": "es",
